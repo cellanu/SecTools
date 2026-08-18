@@ -1,0 +1,19 @@
+{
+  "_comment": "Claude Desktop MCP Configuration",
+  "_instructions": "Copy this file to your Claude Desktop config directory and update the paths",
+  "_config_locations": {
+    "macOS": "~/Library/Application Support/Claude/claude_desktop_config.json",
+    "Windows": "%APPDATA%\\Claude\\claude_desktop_config.json",
+    "Linux": "~/.config/claude/claude_desktop_config.json"
+  },
+  "mcpServers": {
+    "terminal": {
+      "command": "python3",
+      "args": ["/ABSOLUTE/PATH/TO/terminal-mcp/server.py"],
+      "cwd": "/ABSOLUTE/PATH/TO/terminal-mcp",
+      "env": {
+        "PYTHONIOENCODING": "utf-8"
+      }
+    }
+  }
+}

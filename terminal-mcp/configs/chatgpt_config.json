@@ -1,0 +1,19 @@
+{
+  "_comment": "ChatGPT Desktop MCP Configuration",
+  "_instructions": "Copy this file to your ChatGPT config directory and update the paths",
+  "_config_locations": {
+    "macOS": "~/Library/Application Support/ChatGPT/mcp_config.json",
+    "Windows": "%APPDATA%\\ChatGPT\\mcp_config.json",
+    "Linux": "~/.config/ChatGPT/mcp_config.json"
+  },
+  "mcpServers": {
+    "terminal": {
+      "command": "python3",
+      "args": ["/ABSOLUTE/PATH/TO/terminal-mcp/server.py"],
+      "cwd": "/ABSOLUTE/PATH/TO/terminal-mcp",
+      "env": {
+        "PYTHONIOENCODING": "utf-8"
+      }
+    }
+  }
+}

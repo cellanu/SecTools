@@ -1,0 +1,20 @@
+{
+  "_comment": "Continue MCP Configuration",
+  "_instructions": "Add this to your Continue config.json and update the paths",
+  "_config_locations": {
+    "vscode": "~/.vscode/extensions/continue.continue-*/config.json",
+    "jetbrains": "~/.config/JetBrains/*/plugins/continue/config.json",
+    "project": ".continue/config.json (in your project root)"
+  },
+  "mcpServers": [
+    {
+      "name": "terminal",
+      "command": "python3",
+      "args": ["/ABSOLUTE/PATH/TO/terminal-mcp/server.py"],
+      "cwd": "/ABSOLUTE/PATH/TO/terminal-mcp",
+      "env": {
+        "PYTHONIOENCODING": "utf-8"
+      }
+    }
+  ]
+}

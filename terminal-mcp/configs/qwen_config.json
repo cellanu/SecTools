@@ -1,0 +1,25 @@
+{
+  "_comment": "Qwen Chat (通义千问) MCP Configuration",
+  "_instructions": "Copy this file to your Qwen Chat config directory and update the paths",
+  "_config_locations": {
+    "macOS": "~/Library/Application Support/QwenChat/config.json",
+    "Windows": "%APPDATA%\\QwenChat\\config.json",
+    "Linux": "~/.config/QwenChat/config.json"
+  },
+  "mcp": {
+    "enabled": true,
+    "servers": {
+      "terminal": {
+        "type": "stdio",
+        "command": "python3",
+        "args": ["/ABSOLUTE/PATH/TO/terminal-mcp/server.py"],
+        "cwd": "/ABSOLUTE/PATH/TO/terminal-mcp",
+        "timeout": 30,
+        "env": {
+          "PYTHONIOENCODING": "utf-8",
+          "LANG": "zh_CN.UTF-8"
+        }
+      }
+    }
+  }
+}

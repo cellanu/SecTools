@@ -1,0 +1,129 @@
+# Terminal MCP Server Configuration
+
+security:
+  # Enable command filtering
+  enable_command_filter: true
+  
+  # Whitelist mode: if not empty, only these commands are allowed
+  # Set to empty list [] to disable whitelist mode
+  allow_commands:
+    - python
+    - python3
+    - git
+    - docker
+    - npm
+    - node
+    - pip
+    - pip3
+    - ls
+    - pwd
+    - echo
+    - cat
+    - head
+    - tail
+    - grep
+    - find
+    - mkdir
+    - touch
+    - cp
+    - mv
+    - chmod
+    - whoami
+    - date
+    - ps
+    - top
+    - df
+    - du
+    - curl
+    - wget
+    - ssh
+    - scp
+    - rsync
+    - tar
+    - zip
+    - unzip
+    - javac
+    - java
+    - go
+    - rustc
+    - cargo
+    - cmake
+    - make
+    - gcc
+    - g++
+    
+  # Blacklist: these commands are always denied (applied regardless of whitelist)
+  deny_commands:
+    - rm
+    - shutdown
+    - reboot
+    - halt
+    - poweroff
+    - format
+    - del
+    - rmdir
+    - chown
+    - useradd
+    - userdel
+    - groupadd
+    - groupdel
+    - passwd
+    - sudo
+    - su
+    
+  # Maximum allowed timeout in seconds
+  max_timeout: 300
+  
+  # Default timeout if not specified by client
+  default_timeout: 30
+  
+  # Dangerous patterns (regex) that will be blocked
+  dangerous_patterns:
+    - "rm\\s+-rf\\s+/"           # rm -rf /
+    - "rm\\s+-rf\\s+\\*"          # rm -rf *
+    - "dd\\s+if="                 # dd command
+    - "mkfs"                      # filesystem formatting
+    - ":\\(\\)\\s*\\{"            # fork bomb :(){ :|:& };:
+    - "\\|\\|\\s*&\\s*&"          # fork bomb variant
+    - "/dev/(zero|null|random)"  # device file manipulation
+    - "chmod\\s+[0-7]{4}\\s+/etc" # modifying /etc permissions
+    - "echo.*>/etc/passwd"       # modifying passwd
+    - "echo.*>/etc/shadow"       # modifying shadow
+    
+  # Working directory restrictions (optional)
+  # If set, commands can only be executed in these directories
+  # Leave empty to allow all directories
+  allowed_directories: []
+  
+  # Directories that are always forbidden
+  forbidden_directories:
+    - /etc
+    - /root
+    - /boot
+    - /proc
+    - /sys
+
+logging:
+  # Log level: DEBUG, INFO, WARNING, ERROR, CRITICAL
+  level: INFO
+  
+  # Log file path
+  file: logs/audit.log
+  
+  # Maximum log file size in MB before rotation
+  max_size_mb: 100
+  
+  # Number of backup log files to keep
+  backup_count: 5
+  
+  # Include command output in logs (truncated to preview_length)
+  include_output: true
+  
+  # Maximum characters of output to include in logs
+  preview_length: 500
+
+# Server settings
+server:
+  # Server name for identification
+  name: terminal-mcp-server
+  version: 1.0.0
