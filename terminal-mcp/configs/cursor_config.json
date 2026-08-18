@@ -1,0 +1,19 @@
+{
+  "_comment": "Cursor MCP Configuration",
+  "_instructions": "Add this to your Cursor settings.json and update the paths",
+  "_config_locations": {
+    "macOS": "~/Library/Application Support/Cursor/User/settings.json",
+    "Windows": "%APPDATA%\\Cursor\\User\\settings.json",
+    "Linux": "~/.config/Cursor/User/settings.json"
+  },
+  "cursor.mcp.servers": {
+    "terminal": {
+      "command": "python3",
+      "args": ["/ABSOLUTE/PATH/TO/terminal-mcp/server.py"],
+      "cwd": "/ABSOLUTE/PATH/TO/terminal-mcp",
+      "env": {
+        "PYTHONIOENCODING": "utf-8"
+      }
+    }
+  }
+}
