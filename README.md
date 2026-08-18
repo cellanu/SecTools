@@ -1,2 +1,0 @@
-# SecTools
-security tools
